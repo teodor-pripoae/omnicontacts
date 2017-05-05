@@ -20,7 +20,7 @@ module OmniContacts
 
       def fetch_contacts_from_token_and_verifier auth_token, auth_token_secret, auth_verifier
         (access_token, access_token_secret, guid) = fetch_access_token(auth_token, auth_token_secret, auth_verifier, ['xoauth_yahoo_guid'])
-        fetch_current_user(access_token, access_token_secret, guid)
+        # fetch_current_user(access_token, access_token_secret, guid)
         contacts_path = "/v1/user/#{guid}/contacts"
         contacts_response = https_get(@contacts_host, contacts_path, contacts_req_params(access_token, access_token_secret, contacts_path))
         contacts_from_response contacts_response
